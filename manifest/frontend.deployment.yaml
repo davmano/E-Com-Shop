@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: e-com-shop
+  labels:
+    app: e-com-shop
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: e-com-shop
+  template:
+    metadata:
+      labels:
+        app: e-com-shop
+    spec:
+      containers:
+        - name: e-com-shop
+          image: davmano/e-com-frontend:latest
+          ports:
+            - containerPort: 80
