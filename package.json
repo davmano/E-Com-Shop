@@ -3,12 +3,13 @@
   "version": "0.0.1",
   "private": true,
   "type": "module",
-  "scripts": {
-    "dev": "npx vite",
-    "build": "npx vite build",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "preview": "npx vite preview"
-  },
+"scripts": {
+  "dev": "npx vite",
+  "build": "npx vite build",
+  "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+  "preview": "npx vite preview"
+},
+
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
