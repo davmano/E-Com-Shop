@@ -41,35 +41,38 @@ E-Com-Shop/
 ### Build Docker image locally:
 ```bash
 docker build -f docker/frontend.Dockerfile -t davmano/e-com-frontend:latest .
-
-Run Docker container locally:
-
+```
+### Run Docker container locally:
+```
 docker run -p 8080:80 davmano/e-com-frontend:latest
+```
 
-Access frontend at http://localhost:8080.
-🚀 Kubernetes Deployment
+> Access frontend at http://localhost:8080.
+
+## 🚀 Kubernetes Deployment
 Apply Kubernetes manifests:
-
+```
 kubectl apply -f k8s/manifests/frontend-deployment.yaml
 kubectl apply -f k8s/manifests/frontend-service.yaml
-
+```
 (Optional) Apply Ingress for external access:
-
+```
 kubectl apply -f k8s/ingress/ingress.yaml
-
+``` 
 Make sure your cluster has an ingress controller installed, e.g., nginx ingress.
-🔄 GitOps with ArgoCD
+
+## 🔄 GitOps with ArgoCD
 
 ArgoCD is configured to watch the k8s/ folder in this repo and automatically syncs changes to your Kubernetes cluster.
 Install ArgoCD in your cluster:
-
+```
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-
-Create ArgoCD Application (example):
-
+```
+> Create ArgoCD Application (example):
+```
 kubectl apply -f argocd/application.yaml
-
+```
 (See argocd/application.yaml in repo for the full manifest.)
 ⚙ CI/CD Pipeline (GitHub Actions)
 
@@ -81,11 +84,11 @@ On each push to main branch, GitHub Actions will:
 
 Make sure to set the following secrets in your GitHub repository settings:
 
-    DOCKER_HUB_USERNAME
+    DOCKERHUB_USERNAME
 
-    DOCKER_HUB_TOKEN
+    DOCKERHUB_TOKEN
 
-🛠 Local Development
+## 🛠 Local Development
 
 Run frontend locally without Docker:
 
